@@ -1,7 +1,51 @@
 ﻿@page
 @model book_crud_application.Pages.BookList.IndexModel
-@{
-	ViewData["Title"] = "Index";
-}
 
-<h1>Index</h1>
+
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-9">
+			<h1 class="text-info">Book LIst</h1>
+		</div>
+		<div class="col-3">
+			<a asp-page="Create" class="btn btn-info form-control text-white">
+				Create New Book
+			</a>
+		</div>
+	</div>
+	<div class="col-12 border p-3 mt-3">
+		<form action="" method="POST">
+			@if(Model.Books.Count() > 0)
+			{
+				<table class="table table-bordered table-dark">
+					<thead>
+						<tr>
+							<th scope="col">Name</th>
+							<th scope="col">Author</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var book in Model.Books)
+						{
+							<tr>
+								<td>@Html.DisplayFor(m => book.Name)</td>
+								<td>@Html.DisplayFor(m => book.Author)</td>
+								<td>
+									<button class="btn btn-danger btn-sm">
+										Delete
+									</button>
+									<a class="btn btn-success btn-sm">Edit</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			} else {
+				<p>No books Available</p>
+			}
+		</form>
+	</div>
+</div>
+
