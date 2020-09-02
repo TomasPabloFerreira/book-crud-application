@@ -6,7 +6,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200902125424_CreateBookTable.cs" />
+    <Compile Remove="Migrations\20200902125424_CreateBookTable.Designer.cs" />
+    <Compile Remove="Migrations\20200902125721_AddBookToDb.cs" />
+    <Compile Remove="Migrations\20200902125721_AddBookToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200902125950_AddBookToDb.cs" />
+    <Compile Remove="Migrations\20200902125950_AddBookToDb.Designer.cs" />
+    <Compile Remove="Migrations\20200902130251_CreateBookTable.cs" />
+    <Compile Remove="Migrations\20200902130251_CreateBookTable.Designer.cs" />
+    <Compile Remove="Migrations\20200902130804_CreateBookTable.cs" />
+    <Compile Remove="Migrations\20200902130804_CreateBookTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
