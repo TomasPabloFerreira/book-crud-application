@@ -1,4 +1,60 @@
 ﻿@page
 @model book_crud_application.Pages.BookList.EditModel
-@{
+
+<br>
+<h2 class="text-info">Edit Book</h2>
+<br>
+
+<div class="container border pt-2 p-0">
+	<form method="POST">
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+		<div class="pt-4 pb-4 border-bottom">
+			@* Name *@
+			<div class="form-group row">
+				<label
+					asp-for="Book.Name"
+					class="col-sm-2 col-form-label offset-1"
+				></label>
+				<div class="col-sm-7">
+					<input asp-for="Book.Name" class="form-control" />
+					<span asp-validation-for="Book.Name" class="text-danger">
+					</span>
+				</div>
+			</div>
+			@* Author *@
+			<div class="form-group row">
+				<label
+					asp-for="Book.Author"
+					class="col-sm-2 col-form-label offset-1"
+				></label>
+				<div class="col-sm-7">
+					<input asp-for="Book.Author" class="form-control" />
+					<span asp-validation-for="Book.Author" class="text-danger">
+					</span>
+				</div>
+			</div>
+			@* ISBN *@
+			<div class="form-group row">
+				<label
+					asp-for="Book.ISBN"
+					class="col-sm-2 col-form-label offset-1"
+				></label>
+				<div class="col-sm-7">
+					<input asp-for="Book.ISBN" class="form-control" />
+					<span asp-validation-for="Book.ISBN" class="text-danger">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-3 mb-3 text-right pr-4">
+			<div class="col">
+				<a asp-page="Index" class="btn btn-secondary">Back to List</a>
+				<button class="btn btn-primary">Update</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
 }
