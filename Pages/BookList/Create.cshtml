@@ -7,6 +7,7 @@
 
 <div class="container border pt-2 p-0">
 	<form method="POST">
+		<div class="text-danger" asp-validation-summary="ModelOnly"></div>
 		<div class="pt-4 pb-4 border-bottom">
 			@* Name *@
 			<div class="form-group row">
@@ -16,6 +17,8 @@
 				></label>
 				<div class="col-sm-7">
 					<input asp-for="Book.Name" class="form-control" />
+					<span asp-validation-for="Book.Name" class="text-danger">
+					</span>
 				</div>
 			</div>
 			@* Author *@
@@ -26,6 +29,8 @@
 				></label>
 				<div class="col-sm-7">
 					<input asp-for="Book.Author" class="form-control" />
+					<span asp-validation-for="Book.Author" class="text-danger">
+					</span>
 				</div>
 			</div>
 			@* ISBN *@
@@ -36,6 +41,8 @@
 				></label>
 				<div class="col-sm-7">
 					<input asp-for="Book.ISBN" class="form-control" />
+					<span asp-validation-for="Book.ISBN" class="text-danger">
+					</span>
 				</div>
 			</div>
 		</div>
@@ -47,4 +54,3 @@
 		</div>
 	</form>
 </div>
-
