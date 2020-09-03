@@ -37,7 +37,13 @@
 									<button class="btn btn-danger btn-sm">
 										Delete
 									</button>
-									<a class="btn btn-success btn-sm">Edit</a>
+									<a
+										class="btn btn-success btn-sm"
+										asp-page="Edit"
+										asp-route-id="@book.Id"
+									>
+										Edit
+									</a>
 								</td>
 							</tr>
 						}
