@@ -11,14 +11,12 @@ namespace book_crud_application.Pages.BookList
 {
 	public class IndexModel : PageModel
 	{
-
 		private readonly ApplicationDbContext _db;
 
 		public IndexModel(ApplicationDbContext db)
 		{
 			_db = db;
 		}
-
 
 		public IEnumerable<Book> Books { get; set; }
 

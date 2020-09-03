@@ -23,6 +23,7 @@
 						<tr>
 							<th scope="col">Name</th>
 							<th scope="col">Author</th>
+							<th scope="col">ISBN</th>
 							<th scope="col">Actions</th>
 						</tr>
 					</thead>
@@ -32,6 +33,7 @@
 							<tr>
 								<td>@Html.DisplayFor(m => book.Name)</td>
 								<td>@Html.DisplayFor(m => book.Author)</td>
+								<td>@Html.DisplayFor(m => book.ISBN)</td>
 								<td>
 									<button class="btn btn-danger btn-sm">
 										Delete
