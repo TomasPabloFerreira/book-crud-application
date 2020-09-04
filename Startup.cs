@@ -30,6 +30,7 @@ namespace book_crud_application
 					Configuration.GetConnectionString("DefaultConnection")
 				)
 			);
+			services.AddControllersWithViews();
 			services.AddRazorPages().AddRazorRuntimeCompilation();
 		}
 
@@ -56,6 +57,7 @@ namespace book_crud_application
 
             app.UseEndpoints(endpoints =>
             {
+				endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
