@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using book_crud_application.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace book_crud_application.controllers
 {
@@ -19,10 +20,29 @@ namespace book_crud_application.controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetAll()
+		public async Task<IActionResult> GetAll()
 		{
-			return Json(new { data = _db.Book.ToList() });
+			return Json(new { data = await _db.Book.ToListAsync() });
 		}
-	
+
+		[HttpDelete]
+		public async Task<IActionResult> Delete(int id)
+		{
+			Book bookFromDb = await _db.Book.FirstOrDefaultAsync();
+
+			if(bookFromDb == null) {
+				return Json(
+					new { success = false, message = "Error while deleting" }
+				);
+			}
+
+			_db.Book.Remove(bookFromDb);
+			return Json(
+				new {
+					success = true,
+					message = "The book has been successfully deleted"
+				}
+			);
+		}
 	}
 }
