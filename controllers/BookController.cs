@@ -28,7 +28,7 @@ namespace book_crud_application.controllers
 		[HttpDelete]
 		public async Task<IActionResult> Delete(int id)
 		{
-			Book bookFromDb = await _db.Book.FirstOrDefaultAsync();
+			var bookFromDb = await _db.Book.FirstOrDefaultAsync();
 
 			if(bookFromDb == null) {
 				return Json(
@@ -37,6 +37,7 @@ namespace book_crud_application.controllers
 			}
 
 			_db.Book.Remove(bookFromDb);
+			await _db.SaveChangesAsync();
 			return Json(
 				new {
 					success = true,

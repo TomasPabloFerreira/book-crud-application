@@ -1,12 +1,37 @@
+let table
+
 $(document).ready(function () {
-    loadDataTable();
+    table = loadDataTable();
 });
 
 const confirmDelete = () =>
 	confirm('Are you sure you want to delete this book?')
 
+const deleteBook = async (url) => {
+	const result = await fetch(url, { method: 'DELETE' })
+	const data = await result.json()
+	if(data.success) {
+		toastr.success(data.message)
+		table.ajax.reload();
+	} else {
+		toastr.error(data.message)
+	}
+}
+
+const deleteAlert = (url) => {
+	new swal({
+		title: "Are you sure?",
+		text: "Once deleted, you will not be able to recover this imaginary file!",
+		icon: "warning",
+		showCancelButton: true,
+		  showCloseButton: true
+	}).then((willDelete) => {
+		if(willDelete.value) deleteBook(url)
+	})
+}
+
 loadDataTable = () => {
-	$('#DT_load').DataTable({
+	return $('#DT_load').DataTable({
 		"ajax": {
 			"url": "/api/book",
 			"type": "GET",
@@ -25,7 +50,7 @@ loadDataTable = () => {
 						</a>
 						&nbsp;
 						<a class='btn btn-danger text-white' style='cursor:pointer; width:70px;'
-							onclick=Delete('/api/book?id='+${data})>
+							onclick=deleteAlert('/api/book?id='+${data})>
 							Delete
 						</a>
 						</div>`;
